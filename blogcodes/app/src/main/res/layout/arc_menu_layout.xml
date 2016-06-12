@@ -1,0 +1,37 @@
+<com.bobomee.blogdemos.view.arcmenu.ArcMenu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/id_arcmenu"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    app:arcMargin="15dp"
+    app:arcPosition="center_bottom"
+    app:arcRadius="130dp">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/chooser_button" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/composer_camera"
+        android:tag="Camera" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/composer_music"
+        android:tag="Music" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/composer_place"
+        android:tag="Place" />
+
+</com.bobomee.blogdemos.view.arcmenu.ArcMenu>

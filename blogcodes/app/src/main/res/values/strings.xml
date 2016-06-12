@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BlogDemos</string>
+
+    <string name="share">分享</string>
+    <string name="upload">上传</string>
+    <string name="call">呼叫</string>
+    <string name="help">帮助</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+</resources>
