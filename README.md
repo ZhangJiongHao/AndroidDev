@@ -1,15 +1,4 @@
-Android Develop Demos
+Android Notes
 
 -----
-
-The project branch list:
-
-* master : Main branch
-* activityfragment : Solving the communication problem of activity and fragment with the observer pattern
-* blog : csdn blog codes
-* common : Android common tools
-* dagger2 : Simple Demo for  Dagger2
-* mvp : Simple Demo for  MVP
-* orm : Android orm learn demo
-* provider : android contentprovider learn demo
-* retrofit2 : Simple Demo for Retrofit2
+记录读书笔记和开发总结及一些思考...
