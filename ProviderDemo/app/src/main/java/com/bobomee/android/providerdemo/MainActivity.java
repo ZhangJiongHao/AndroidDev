@@ -1,7 +1,5 @@
 package com.bobomee.android.providerdemo;
 
-import android.content.ContentValues;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -10,25 +8,31 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.bobomee.android.providerdemo.data.DataHelper;
+import com.bobomee.android.providerdemo.provider.IProivderMetaData;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+  private DataHelper mDataHelper;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+    mDataHelper = new DataHelper(this);
   }
 
   public void onClickAddName(View view) {
     // Add a new student record
-    ContentValues values = new ContentValues();
 
     String name = ((EditText) findViewById(R.id.editText2)).getText().toString();
 
     String grade = ((EditText) findViewById(R.id.editText3)).getText().toString();
     if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(grade)) {
-      values.put(StudentsProvider.NAME, name);
-      values.put(StudentsProvider.GRADE, grade);
-      Uri uri = getContentResolver().insert(StudentsProvider.CONTENT_URI, values);
+
+      IProivderMetaData.StudentTableMetaData.Student student =
+          new IProivderMetaData.StudentTableMetaData.Student(grade, name);
+      Uri uri = mDataHelper.insert(student);
 
       if (uri != null) {
         Toast.makeText(getBaseContext(), uri.toString(), Toast.LENGTH_LONG).show();
@@ -40,27 +44,16 @@ public class MainActivity extends AppCompatActivity {
 
   public void onClickRetrieveStudents(View view) {
 
-    Cursor c = managedQuery(StudentsProvider.CONTENT_URI, null, null, null, "name");
 
-    StringBuilder builder = new StringBuilder();
-    if (c.moveToFirst()) {
-      do {
-        builder.append(c.getString(c.getColumnIndex(StudentsProvider._ID)))
-            .append(". name =  ")
-            .append(c.getString(c.getColumnIndex(StudentsProvider.NAME)))
-            .append(", grade = ")
-            .append(c.getString(c.getColumnIndex(StudentsProvider.GRADE)))
-            .append("\n");
-      } while (c.moveToNext());
-    }
+    List<IProivderMetaData.StudentTableMetaData.Student> students = mDataHelper.queryAll();
 
-    new AlertDialog.Builder(this).setMessage(builder.toString()).show();
+    new AlertDialog.Builder(this).setMessage(students.toString()).show();
   }
 
   public void onClickDeleteStudents(View view) {
     long row = 0;
     //删除所有
-    row = getContentResolver().delete(IProivderMetaData.StudentTableMetaData.CONTENT_URI, null, null);
+    row = mDataHelper.clearAll();
     if (row != 0) {
       Toast.makeText(getBaseContext(), String.valueOf(row), Toast.LENGTH_LONG).show();
     }

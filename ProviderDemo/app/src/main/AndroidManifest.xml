@@ -17,7 +17,7 @@
     </activity>
 
     <provider
-        android:name=".StudentsProvider"
+        android:name=".provider.StudentsProvider"
         android:authorities="com.example.provider.College"
         android:enabled="true"
         android:exported="true">

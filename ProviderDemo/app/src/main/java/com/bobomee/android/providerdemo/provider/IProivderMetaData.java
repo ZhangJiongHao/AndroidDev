@@ -1,4 +1,4 @@
-package com.bobomee.android.providerdemo;
+package com.bobomee.android.providerdemo.provider;
 
 import android.net.Uri;
 import android.provider.BaseColumns;
@@ -24,9 +24,30 @@ public interface IProivderMetaData {
     String URL = "content://" + AUTHORITY + "/students";
     Uri CONTENT_URI = Uri.parse(URL);
 
-    // 数据库字段
-    String NAME = "name";
-    String GRADE = "grade";
+    class Student {
+      // 数据库字段
+      public static String NAME = "name";
+      public static String GRADE = "grade";
+
+      public String name;
+      public String grade;
+
+      public Student() {
+        super();
+      }
+
+      public Student(String grade, String name) {
+        this.grade = grade;
+        this.name = name;
+      }
+
+      @Override public String toString() {
+        return "Student{" +
+            "grade='" + grade + '\'' +
+            ", name='" + name + '\'' +
+            '}';
+      }
+    }
 
     // 创建数据库
     String CREATE_DB_TABLE = " CREATE TABLE " + STUDENTS_TABLE_NAME +

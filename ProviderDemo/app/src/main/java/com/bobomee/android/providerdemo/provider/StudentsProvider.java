@@ -1,4 +1,4 @@
-package com.bobomee.android.providerdemo;
+package com.bobomee.android.providerdemo.provider;
 
 import android.content.ContentProvider;
 import android.content.ContentUris;
@@ -94,6 +94,10 @@ public class StudentsProvider extends ContentProvider
         //不能识别uri
         throw new IllegalArgumentException("This is a unKnow Uri" + uri.toString());
     }
+  }
+
+  public DbHelper getDbHelper() {
+    return dbHelper;
   }
 
   @Override public boolean onCreate() {
