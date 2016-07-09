@@ -19,8 +19,8 @@
 package com.bobomee.android.common.util;
 
 import android.database.Cursor;
-
 import java.io.Closeable;
+import java.io.IOException;
 
 /**
  * Author: wyouflf
@@ -32,21 +32,37 @@ public class IOUtil {
     private IOUtil() {
     }
 
-    public static void closeQuietly(Closeable closeable) {
-        if (closeable != null) {
+    public static void closeQuietly(Closeable... closeables) {
+        if (null == closeables || closeables.length <= 0) {
+            return;
+        }
+        for (Closeable cb : closeables) {
             try {
-                closeable.close();
-            } catch (Throwable e) {
+                if (null == cb) {
+                    continue;
+                }
+                cb.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
+
     }
 
-    public static void closeQuietly(Cursor cursor) {
-        if (cursor != null) {
+    public static void closeQuietly(Cursor... cursors) {
+        if (null == cursors || cursors.length <= 0) {
+            return;
+        }
+        for (Closeable cr : cursors) {
             try {
-                cursor.close();
-            } catch (Throwable e) {
+                if (null == cr) {
+                    continue;
+                }
+                cr.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
+
     }
 }

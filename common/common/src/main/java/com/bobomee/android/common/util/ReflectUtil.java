@@ -23,17 +23,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * Created by bobomee on 16/4/20.
+ * Created on 16/4/20.下午8:43.
+ * @author bobomee.
+ * wbwjx115@gmail.com
  */
 public class ReflectUtil {
-
-    public static Method[] getMethodNames(Class<?> clz) {
-
-        Method[] declaredMethods = clz.getDeclaredMethods();
-
-        return declaredMethods;
-    }
-
 
     /**
      * 循环向上转型, 获取对象的 DeclaredMethod
@@ -45,7 +39,7 @@ public class ReflectUtil {
      */
 
     public static Method getDeclaredMethod(Object object, String methodName, Class<?>... parameterTypes) {
-        Method method = null;
+        Method method;
 
         for (Class<?> clazz = object.getClass(); clazz != Object.class; clazz = clazz.getSuperclass()) {
             try {
@@ -54,33 +48,32 @@ public class ReflectUtil {
             } catch (Exception e) {
                 //这里甚么都不要做！并且这里的异常必须这样写，不能抛出去。
                 //如果这里的异常打印或者往外抛，则就不会执行clazz = clazz.getSuperclass(),最后就不会进入到父类中了
-
             }
         }
 
         return null;
     }
 
-    public static Object invokeMethod(Object object, String methodName) {
-        //根据 对象、方法名和对应的方法参数 通过反射 调用上面的方法获取 Method 对象
-        Method method = getDeclaredMethod(object, methodName,
-            null);
+    /**
+     * 循环向上转型, 获取对象的 DeclaredField
+     *
+     * @param object : 子类对象
+     * @param fieldName : 父类中的属性名
+     * @return 父类中的属性对象
+     */
 
-        //抑制Java对方法进行检查,主要是针对私有方法而言
-        method.setAccessible(true);
+    public static Field getDeclaredField(Object object, String fieldName) {
+        Field field;
 
-        try {
-            if (null != method) {
-
-                //调用object 的 method 所代表的方法，其方法的参数是 parameters
-                return method.invoke(object, null);
+        for (Class<?> clazz = object.getClass(); clazz != Object.class;
+            clazz = clazz.getSuperclass()) {
+            try {
+                field = clazz.getDeclaredField(fieldName);
+                return field;
+            } catch (Exception e) {
+                //这里甚么都不要做！并且这里的异常必须这样写，不能抛出去。
+                //如果这里的异常打印或者往外抛，则就不会执行clazz = clazz.getSuperclass(),最后就不会进入到父类中了
             }
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
         }
 
         return null;
@@ -101,48 +94,15 @@ public class ReflectUtil {
         //根据 对象、方法名和对应的方法参数 通过反射 调用上面的方法获取 Method 对象
         Method method = getDeclaredMethod(object, methodName, parameterTypes);
 
-        //抑制Java对方法进行检查,主要是针对私有方法而言
-        method.setAccessible(true);
-
         try {
             if (null != method) {
-
+                //抑制Java对方法进行检查,主要是针对私有方法而言
+                method.setAccessible(true);
                 //调用object 的 method 所代表的方法，其方法的参数是 parameters
                 return method.invoke(object, parameters);
             }
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
-
-    /**
-     * 循环向上转型, 获取对象的 DeclaredField
-     *
-     * @param object    : 子类对象
-     * @param fieldName : 父类中的属性名
-     * @return 父类中的属性对象
-     */
-
-    public static Field getDeclaredField(Object object, String fieldName) {
-        Field field = null;
-
-        Class<?> clazz = object.getClass();
-
-        for (; clazz != Object.class; clazz = clazz.getSuperclass()) {
-            try {
-                field = clazz.getDeclaredField(fieldName);
-                return field;
-            } catch (Exception e) {
-                //这里甚么都不要做！并且这里的异常必须这样写，不能抛出去。
-                //如果这里的异常打印或者往外抛，则就不会执行clazz = clazz.getSuperclass(),最后就不会进入到父类中了
-
-            }
         }
 
         return null;
@@ -161,18 +121,16 @@ public class ReflectUtil {
         //根据 对象和属性名通过反射 调用上面的方法获取 Field对象
         Field field = getDeclaredField(object, fieldName);
 
-        //抑制Java对其的检查
-        field.setAccessible(true);
-
         try {
-            //将 object 中 field 所代表的值 设置为 value
-            field.set(object, value);
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+           if (null != field) {
+               //抑制Java对其的检查
+               field.setAccessible(true);
+               //将 object 中 field 所代表的值 设置为 value
+               field.set(object, value);
+           }
+        } catch (IllegalArgumentException | IllegalAccessException e) {
             e.printStackTrace();
         }
-
     }
 
     /**
@@ -188,13 +146,13 @@ public class ReflectUtil {
         //根据 对象和属性名通过反射 调用上面的方法获取 Field对象
         Field field = getDeclaredField(object, fieldName);
 
-        //抑制Java对其的检查
-        field.setAccessible(true);
-
         try {
-            //获取 object 中 field 所代表的属性值
-            return field.get(object);
-
+           if (null != field) {
+               //抑制Java对其的检查
+               field.setAccessible(true);
+               //获取 object 中 field 所代表的属性值
+               return field.get(object);
+           }
         } catch (Exception e) {
             e.printStackTrace();
         }

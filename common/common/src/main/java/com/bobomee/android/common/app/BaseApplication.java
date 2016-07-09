@@ -23,7 +23,7 @@ import android.os.Handler;
 import android.os.Looper;
 
 /**
- * @author：BoBoMEe Created at 2016/1/18.
+ * @author&#xff1a;BoBoMEe Created at 2016/1/18.
  */
 public class BaseApplication extends Application {
 

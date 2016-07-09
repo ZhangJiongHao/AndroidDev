@@ -1,24 +1,6 @@
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-/*
- * Android_Common. lastModified by bobomee at 2016.4.2 10:54
- *
- * Copyright (C) 2016 bobomee
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 // load properties
 Properties properties = new Properties()
 File localPropertiesFile = project.file("local.properties");
@@ -37,12 +19,12 @@ def projectGitUrl = properties.getProperty("project.gitUrl")
 def projectDesc = properties.getProperty("project.desc")
 def projectIssueUrl = properties.getProperty("project.issueUrl")
 
-def developerId = DEVELOPER_ID
-def developerName = DEVELOPER_NAME
-def developerEmail = DEVELOPER_EMAIL
+def developerId = "bobomee"
+def developerName = "BoBoMEe"
+def developerEmail = "wbwjx115@gmail.com"
 
-def bintrayUser = BINTRAY_USER
-def bintrayApikey = BINTRAY_KEY
+def bintrayUser = "bobomee"
+def bintrayApikey = "a8bea95a15202a6f8580bb4dc47e3d78f5cc0928"
 
 def javadocName = properties.getProperty("javadoc.name")
 
@@ -104,7 +86,7 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 }
 
 artifacts {
-//    archives javadocJar
+    //    archives javadocJar
     archives sourcesJar
 }
 
@@ -128,7 +110,7 @@ bintray {
     pkg {
         repo = "maven"
         name = projectName
-        desc =projectDesc
+        desc = projectDesc
         websiteUrl = projectSiteUrl
         issueTrackerUrl = projectIssueUrl
         vcsUrl = projectGitUrl

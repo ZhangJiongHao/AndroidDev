@@ -28,7 +28,7 @@ import java.io.InputStreamReader;
 /**
  * 模拟数据工具类
  */
-public class DataUtil {
+public class MockitoUtil {
 
     public static String readAssetsString(Context context, String name) {
 

@@ -249,36 +249,4 @@ public class PackageUtil {
         return signature;
     }
 
-    /**
-     * 获取指定路径的apk的资源
-     */
-    @SuppressWarnings({"rawtypes", "unchecked"})
-    public static Resources getAPKResources(String apkPath) throws Exception {
-        Context context = UIUtil.getContext();
-        if (null == context) {
-            return null;
-        }
-        String PathAssetManager = "android.content.res.AssetManager";
-        Class assetMagCls = Class.forName(PathAssetManager);
-        Constructor assetMagCt = assetMagCls.getConstructor((Class[]) null);
-        Object assetMag = assetMagCt.newInstance((Object[]) null);
-        Class[] typeArgs = new Class[1];
-        typeArgs[0] = String.class;
-        Method assetMagAddAssetPathMtd = assetMagCls.getDeclaredMethod("addAssetPath", typeArgs);
-        Object[] valueArgs = new Object[1];
-        valueArgs[0] = apkPath;
-        assetMagAddAssetPathMtd.invoke(assetMag, valueArgs);
-        Resources res = context.getResources();
-        typeArgs = new Class[3];
-        typeArgs[0] = assetMag.getClass();
-        typeArgs[1] = res.getDisplayMetrics().getClass();
-        typeArgs[2] = res.getConfiguration().getClass();
-        Constructor resCt = Resources.class.getConstructor(typeArgs);
-        valueArgs = new Object[3];
-        valueArgs[0] = assetMag;
-        valueArgs[1] = res.getDisplayMetrics();
-        valueArgs[2] = res.getConfiguration();
-        res = (Resources) resCt.newInstance(valueArgs);
-        return res;
-    }
 }
