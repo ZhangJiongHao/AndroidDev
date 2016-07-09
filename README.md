@@ -10,4 +10,4 @@
 
 截图
 
-![providertutorial](screenshot.gif "providertutorial")
+![providertutorial](ProviderTutorial/screenshot.gif "providertutorial")
