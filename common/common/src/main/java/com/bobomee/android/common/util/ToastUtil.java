@@ -22,7 +22,9 @@ import android.content.Context;
 import android.widget.Toast;
 
 /**
- * Created by bobomee on 16/1/12.
+ * Created on 16/1/12.下午3:28.
+ * @author bobomee.
+ * wbwjx115@gmail.com
  */
 public class ToastUtil {
 

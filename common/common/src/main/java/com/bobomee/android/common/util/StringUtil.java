@@ -23,7 +23,9 @@ import android.text.TextUtils;
 import java.util.Random;
 
 /**
- * Created by bobomee on 16/5/16.
+ * Created on 16/5/16.下午3:28.
+ * @author bobomee.
+ * wbwjx115@gmail.com
  */
 public class StringUtil {
 

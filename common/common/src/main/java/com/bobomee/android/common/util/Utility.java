@@ -7,7 +7,7 @@ import android.os.Parcelable;
 import java.io.File;
 
 /**
- * Created on 16/7/10.上午12:01.
+ * 综合工具
  *
  * @author bobomee.
  *         wbwjx115@gmail.com
@@ -56,4 +56,6 @@ public class Utility {
     intent.setDataAndType(uri, "video/*");
     mContext.startActivity(intent);
   }
+
+
 }

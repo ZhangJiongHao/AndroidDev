@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.graphics.drawable.BuildConfig;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
@@ -42,7 +43,6 @@ public class NetworkStatusManager {
   public static final int NETWORK_CLASS_WIFI = 999;
   public static final String NETWORK_CLASS_WIFI_NAME = "WIFI";
   private static final String TAG = "NetworkStatusManager";
-  private static final boolean DBG = true;
   private static NetworkStatusManager sInstance;
   private Context mContext;
   private State mState;
@@ -271,7 +271,7 @@ public class NetworkStatusManager {
 
       mReason = intent.getStringExtra(ConnectivityManager.EXTRA_REASON);
       mIsFailOver = intent.getBooleanExtra(ConnectivityManager.EXTRA_IS_FAILOVER, false);
-      if (DBG) {
+      if (BuildConfig.DEBUG) {
         Log.d(TAG, "onReceive(): mNetworkInfo="
             + mNetworkInfo
             + " mOtherNetworkInfo = "

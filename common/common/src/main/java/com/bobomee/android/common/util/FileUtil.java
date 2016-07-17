@@ -20,7 +20,6 @@ package com.bobomee.android.common.util;
 
 import android.text.TextUtils;
 import android.util.Log;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -31,7 +30,9 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 /**
- * Created by bobomee on 16/5/16.
+ * Created on 16/5/16.下午3:30.
+ * @author bobomee.
+ * wbwjx115@gmail.com
  */
 public class FileUtil {
     /**

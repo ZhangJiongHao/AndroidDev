@@ -1,11 +1,10 @@
 package com.bobomee.android.common.util;
 
-import android.text.TextUtils;
-import java.text.SimpleDateFormat;
 import java.util.regex.Pattern;
 
 /**
  * Created on 16/7/9.下午11:54.
+ * 正则判断
  *
  * @author bobomee.
  *         wbwjx115@gmail.com
@@ -55,90 +54,140 @@ public class PatternsUtil {
    */
 
   public static boolean matcherIdentityCard(String value) {
-    IDCardTester idCardTester = new IDCardTester();
-    return idCardTester.test(value);
+    String regex = "[1-9]\\d{13,16}[a-zA-Z0-9]{1}";
+    return Pattern.matches(regex, value);
   }
 
   /**
-   * 身份证校验
-   * <P>
-   * 根据〖中华人民共和国国家标准 GB 11643-1999〗中有关公民身份号码的规定，公民身份号码是特征组合码，由十七位数字本体码和一位数字校验码组成。排列顺序从左至右依次为：六位数字地址码，八位数字出生日期码，三位数字顺序码和一位数字校验码。
-   * 地址码表示编码对象常住户口所在县(市、旗、区)的行政区划代码。
-   * 出生日期码表示编码对象出生的年、月、日，其中年份用四位数字表示，年、月、日之间不用分隔符。
-   * 顺序码表示同一地址码所标识的区域范围内，对同年、月、日出生的人员编定的顺序号。顺序码的奇数分给男性，偶数分给女性。
-   * 校验码是根据前面十七位数字码，按照ISO 7064:1983.MOD 11-2校验码计算出来的检验码。
-   * 出生日期计算方法。
-   * 15位的身份证编码首先把出生年扩展为4位，简单的就是增加一个19或18,这样就包含了所有1800-1999年出生的人;
-   * 2000年后出生的肯定都是18位的了没有这个烦恼，至于1800年前出生的,那啥那时应该还没身份证号这个东东，⊙﹏⊙b汗...
-   * 下面是正则表达式:
-   * 出生日期1800-2099  /(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])/
-   * 身份证正则表达式 /^[1-9]\d{5}((1[89]|20)\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])\d{3}[\dx]$/i
-   * 15位校验规则 6位地址编码+6位出生日期+3位顺序号
-   * 18位校验规则 6位地址编码+8位出生日期+3位顺序号+1位校验位
-   * 校验位规则     公式:∑(ai×Wi)(mod 11)……………………………………(1)
-   * 公式(1)中：
-   * i----表示号码字符从由至左包括校验码在内的位置序号；
-   * ai----表示第i位置上的号码字符值；
-   * Wi----示第i位置上的加权因子，其数值依据公式Wi=2^(n-1）(mod 11)计算得出。
-   * i 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1
-   * Wi 7 9 10 5 8 4 2 1 6 3 7 9 10 5 8 4 2 1
-   * </P>
+   * 验证手机号码（支持国际格式，+86135xxxx...（中国内地），+00852137xxxx...（中国香港））
    *
-   * @author Yoojia.Chen (yoojia.chen@gmail.com)
-   * @version version 2015-05-21
-   * @since 2.0
+   * @param mobile 移动、联通、电信运营商的号码段
+   *               <p>移动的号段：134(0-8)、135、136、137、138、139、147（预计用于TD上网卡）
+   *               、150、151、152、157（TD专用）、158、159、187（未启用）、188（TD专用）</p>
+   *               <p>联通的号段：130、131、132、155、156（世界风专用）、185（未启用）、186（3g）</p>
+   *               <p>电信的号段：133、153、180（未启用）、189</p>
+   * @return 验证成功返回true，验证失败返回false
    */
-  private static class IDCardTester {
-    public boolean test(String content) {
-      if (TextUtils.isEmpty(content)) {
-        return false;
-      }
-      final int length = content.length();
-      if (15 == length) {
-        try {
-          return isOldCNIDCard(content);
-        } catch (NumberFormatException e) {
-          e.printStackTrace();
-          return false;
-        }
-      } else if (18 == length) {
-        return isNewCNIDCard(content);
-      } else {
-        return false;
-      }
-    }
+  public static boolean checkMobile(String mobile) {
+    String regex = "(\\+\\d+)?1[3458]\\d{9}$";
+    return Pattern.matches(regex, mobile);
+  }
 
-    final int[] WEIGHT = { 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2 };
+  /**
+   * 验证固定电话号码
+   *
+   * @param phone 电话号码，格式：国家（地区）电话代码 + 区号（城市代码） + 电话号码，如：+8602085588447
+   * <p><b>国家（地区） 代码 ：</b>标识电话号码的国家（地区）的标准国家（地区）代码。它包含从 0 到 9 的一位或多位数字，
+   * 数字之后是空格分隔的国家（地区）代码。</p>
+   * <p><b>区号（城市代码）：</b>这可能包含一个或多个从 0 到 9 的数字，地区或城市代码放在圆括号——
+   * 对不使用地区或城市代码的国家（地区），则省略该组件。</p>
+   * <p><b>电话号码：</b>这包含从 0 到 9 的一个或多个数字 </p>
+   * @return 验证成功返回true，验证失败返回false
+   */
+  public static boolean checkPhone(String phone) {
+    String regex = "(\\+\\d+)?(\\d{3,4}\\-?)?\\d{7,8}$";
+    return Pattern.matches(regex, phone);
+  }
 
-    final char[] VALID = { '1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2' };
+  /**
+   * 验证Email
+   *
+   * @param email email地址，格式：zhangsan@sina.com，zhangsan@xxx.com.cn，xxx代表邮件服务商
+   * @return 验证成功返回true，验证失败返回false
+   */
+  public static boolean checkEmail(String email) {
+    String regex = "\\w+@\\w+\\.[a-z]+(\\.[a-z]+)?";
+    return Pattern.matches(regex, email);
+  }
 
-    public boolean isNewCNIDCard(String numbers) {
-      //转换字符串中的字母为大写字母
-      numbers = numbers.toUpperCase();
-      int sum = 0;
-      for (int i = 0; i < WEIGHT.length; i++) {
-        final int cell = Character.getNumericValue(numbers.charAt(i));
-        sum += WEIGHT[i] * cell;
-      }
-      int index = sum % 11;
-      return VALID[index] == numbers.charAt(17);
-    }
+  /**
+   * 验证整数（正整数和负整数）
+   *
+   * @param digit 一位或多位0-9之间的整数
+   * @return 验证成功返回true，验证失败返回false
+   */
+  public static boolean checkDigit(String digit) {
+    String regex = "\\-?[1-9]\\d+";
+    return Pattern.matches(regex, digit);
+  }
 
-    public boolean isOldCNIDCard(String numbers) {
-      //ABCDEFYYMMDDXXX
-      String yymmdd = numbers.substring(6, 11);
-      boolean aPass = numbers.equals(String.valueOf(Long.parseLong(numbers)));
-      boolean yPass = true;
-      try {
-        new SimpleDateFormat("yyMMdd").parse(yymmdd);
-      } catch (Exception e) {
-        LogUtil.w("----IDCard 校验失败 : " + numbers);
-        e.printStackTrace();
-        yPass = false;
-      }
-      LogUtil.e("----IDCard aPass : " + aPass);
-      LogUtil.e("----IDCard yPass : " + yPass);
-      return aPass && yPass;
-    }
+  /**
+   * 验证整数和浮点数（正负整数和正负浮点数）
+   *
+   * @param decimals 一位或多位0-9之间的浮点数，如：1.23，233.30
+   * @return 验证成功返回true，验证失败返回false
+   */
+  public static boolean checkDecimals(String decimals) {
+    String regex = "\\-?[1-9]\\d+(\\.\\d+)?";
+    return Pattern.matches(regex, decimals);
+  }
+
+  /**
+   * 验证空白字符
+   *
+   * @param blankSpace 空白字符，包括：空格、\t、\n、\r、\f、\x0B
+   * @return 验证成功返回true，验证失败返回false
+   */
+  public static boolean checkBlankSpace(String blankSpace) {
+    String regex = "\\s+";
+    return Pattern.matches(regex, blankSpace);
+  }
+
+  /**
+   * 验证中文
+   *
+   * @param chinese 中文字符
+   * @return 验证成功返回true，验证失败返回false
+   */
+  public static boolean checkChinese(String chinese) {
+    String regex = "^[\u4E00-\u9FA5]+$";
+    return Pattern.matches(regex, chinese);
+  }
+
+  /**
+   * 验证日期（年月日）
+   *
+   * @param birthday 日期，格式：1992-09-03，或1992.09.03
+   * @return 验证成功返回true，验证失败返回false
+   */
+  public static boolean checkBirthday(String birthday) {
+    String regex = "[1-9]{4}([-./])\\d{1,2}\\1\\d{1,2}";
+    return Pattern.matches(regex, birthday);
+  }
+
+  /**
+   * 验证URL地址
+   *
+   * @param url 格式：http://blog.csdn.net:80/xyang81/article/details/7705960? 或
+   * http://www.csdn.net:80
+   * @return 验证成功返回true，验证失败返回false
+   */
+  public static boolean checkURL(String url) {
+    String regex =
+        "(https?://(w{3}\\.)?)?\\w+\\.\\w+(\\.[a-zA-Z]+)*(:\\d{1,5})?(/\\w*)*(\\??(.+=.*)?(&.+=.*)?)?";
+    return Pattern.matches(regex, url);
+  }
+
+  /**
+   * 匹配中国邮政编码
+   *
+   * @param postcode 邮政编码
+   * @return 验证成功返回true，验证失败返回false
+   */
+  public static boolean checkPostcode(String postcode) {
+    String regex = "[1-9]\\d{5}";
+    return Pattern.matches(regex, postcode);
+  }
+
+  /**
+   * 匹配IP地址(简单匹配，格式，如：192.168.1.1，127.0.0.1，没有匹配IP段的大小)
+   *
+   * @param ipAddress IPv4标准地址
+   * @return 验证成功返回true，验证失败返回false
+   */
+  public static boolean checkIpAddress(String ipAddress) {
+    String regex =
+        "[1-9](\\d{1,2})?\\.(0|([1-9](\\d{1,2})?))\\.(0|([1-9](\\d{1,2})?))\\.(0|([1-9](\\d{1,2})?))";
+    return Pattern.matches(regex, ipAddress);
   }
 }

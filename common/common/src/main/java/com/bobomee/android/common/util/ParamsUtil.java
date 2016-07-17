@@ -23,7 +23,8 @@ import android.text.TextUtils;
 import java.util.Map;
 
 /**
- * @author：BoBoMEe Created at 2016/1/18.
+ * @author：BoBoMEe
+ * Created at 2016/1/18.
  */
 public class ParamsUtil {
 

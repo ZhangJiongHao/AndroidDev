@@ -30,7 +30,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 /**
- * Created by bobomee on 16/4/16.
+ * Created on 16/4/16.下午3:29.
+ * @author bobomee.
+ * wbwjx115@gmail.com
  */
 public class StorageUtil {
 
@@ -273,4 +275,12 @@ public class StorageUtil {
         return content;
     }
 
+
+    /////////////////////****////////////////////////////////////
+    /**
+     * @return 公共下载文件夹
+     */
+    public static String getPublicDownloadDir() {
+        return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath();
+    }
 }

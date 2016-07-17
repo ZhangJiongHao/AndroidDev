@@ -23,6 +23,12 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 
+/**
+ * 屏幕工具
+ * <link>
+ *   https://github.com/liaohuqiu/cube-sdk/blob/master/core/src/in/srain/cube/util/LocalDisplay.java
+ * </link>
+ */
 public class DisplayUtil {
 
   public static int SCREEN_WIDTH_PIXELS;

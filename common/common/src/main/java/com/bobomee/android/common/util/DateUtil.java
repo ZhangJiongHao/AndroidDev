@@ -5,10 +5,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Locale;
 
 /**
  * Created on 16/7/10.上午12:27.
- *
+ * 时间工具类
  * @author bobomee.
  *         wbwjx115@gmail.com
  */
@@ -123,4 +125,53 @@ public class DateUtil {
 
     return oneDay == anotherDay;
   }
+
+  /**
+   * 获取当前时间的年份
+   */
+  public static int getYear() {
+    Calendar calendar = GregorianCalendar.getInstance();
+    return calendar.get(Calendar.YEAR);
+  }
+
+  /**
+   * 获取当前时间的月份
+   */
+  public static int getMonth() {
+    Calendar calendar = GregorianCalendar.getInstance();
+    return calendar.get(Calendar.MONTH);
+  }
+
+  /**
+   * 获取当前时间是哪天
+   */
+  public static int getDay() {
+    Calendar calendar = GregorianCalendar.getInstance();
+    return calendar.get(Calendar.DATE);
+  }
+
+  /**
+   * @param date1
+   * @param date2
+   * @return 1:date1大于date2；
+   * -1:date1小于date2
+   */
+  public static int compareDate(String date1, String date2, String format) {
+    DateFormat df = new SimpleDateFormat(format, Locale.getDefault());
+    try {
+      Date dt1 = df.parse(date1);
+      Date dt2 = df.parse(date2);
+      if (dt1.getTime() > dt2.getTime()) {
+        return 1;
+      } else if (dt1.getTime() < dt2.getTime()) {
+        return -1;
+      } else {
+        return 0;
+      }
+    } catch (Exception exception) {
+      exception.printStackTrace();
+    }
+    return 0;
+  }
+
 }

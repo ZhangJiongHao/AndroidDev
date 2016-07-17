@@ -7,7 +7,7 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
 /**
- * Created on 16/7/10.上午12:13.
+ * 压缩解压工具类
  *
  * @author bobomee.
  *         wbwjx115@gmail.com
