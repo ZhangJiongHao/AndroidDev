@@ -3,6 +3,7 @@ package com.bobomee.android.common.util;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
@@ -233,6 +234,45 @@ public class IntentUtil {
       Log.d("AppUtil", "Couldn't launch the market !");
     }
 
+  }
+
+  /**
+   * 创建快捷方式
+   * @param cxt
+   * @param shortCutName
+   * @param icon
+   * @param cls 要启动的Activity
+   */
+
+  public static void createDeskShortCut(Context cxt, String shortCutName, int icon, Class<?> cls) {
+    Intent shortcutIntent = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
+    shortcutIntent.putExtra("duplicate", false);
+    shortcutIntent.putExtra(Intent.EXTRA_SHORTCUT_NAME, shortCutName);
+    Parcelable ico = Intent.ShortcutIconResource.fromContext(cxt.getApplicationContext(), icon);
+    shortcutIntent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, ico);
+    Intent intent = new Intent(cxt, cls);
+    intent.setAction("android.intent.action.MAIN");
+    intent.addCategory("android.intent.category.LAUNCHER");
+    shortcutIntent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, intent);
+    cxt.sendBroadcast(shortcutIntent);
+  }
+
+  /**
+   * 创建快捷方式
+   * @param ctx
+   * @param shortCutName
+   * @param iconId
+   * @param presentIntent 点击的Intent
+   */
+  public static void createShortcut(Context ctx, String shortCutName, int iconId,
+      Intent presentIntent) {
+    Intent shortcutIntent = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
+    shortcutIntent.putExtra("duplicate", false);
+    shortcutIntent.putExtra(Intent.EXTRA_SHORTCUT_NAME, shortCutName);
+    shortcutIntent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE,
+        Intent.ShortcutIconResource.fromContext(ctx, iconId));
+    shortcutIntent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, presentIntent);
+    ctx.sendBroadcast(shortcutIntent);
   }
 
 }
