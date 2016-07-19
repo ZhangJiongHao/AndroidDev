@@ -140,5 +140,28 @@ public class BitmapUtil {
         }
         return is;
     }
+    
+    public static File saveBitmap(String path,String bitName,Bitmap mBitmap){
+
+        FileOutputStream fOut = null;
+        try {
+            File file = new File(path);
+            if (!file.exists()) file.mkdirs();
+
+            File f = new File(file.getAbsolutePath(), bitName + ".jpg");
+
+            fOut = new FileOutputStream(f);
+            mBitmap.compress(Bitmap.CompressFormat.JPEG, 100, fOut);
+
+            fOut.flush();
+            mBitmap.recycle();
+
+            return f;
+        } catch (Exception e) {
+            return null;
+        } finally {
+            IOUtil.closeQuietly(fOut);
+        }
+    }
 
 }
