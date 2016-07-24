@@ -8,4 +8,5 @@
         <item>@mipmap/perm_group_system_tools</item>
         <item>@mipmap/perm_group_accounts</item>
     </integer-array>
+
 </resources>

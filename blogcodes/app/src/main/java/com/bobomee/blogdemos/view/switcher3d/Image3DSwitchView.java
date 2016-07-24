@@ -534,7 +534,7 @@ public class Image3DSwitchView extends ViewGroup implements Handler.Callback {
 
 
     private void sendScrollMessage(long delayTimeInMills) {
-        /** remove messages before, keeps one message is running at most **/
+        /** removeItem messages before, keeps one message is running at most **/
         handler.removeMessages(SCROLL_WHAT);
         handler.sendEmptyMessageDelayed(SCROLL_WHAT, delayTimeInMills);
     }

@@ -18,6 +18,13 @@ import com.bobomee.blogdemos.base.BaseFragment;
 public class ArcMenuFragment extends BaseFragment {
     private ArcMenu mArcMenu;
 
+    public static ArcMenuFragment newInstance() {
+         Bundle args = new Bundle();
+         ArcMenuFragment fragment = new ArcMenuFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+    
     @Override
     public View initFragmentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.arc_menu_layout, container, false);

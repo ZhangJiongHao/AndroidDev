@@ -9,7 +9,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/AppTheme">
         <activity
             android:name="com.bobomee.blogdemos.MainActivity"
             android:label="@string/app_name">
@@ -31,7 +31,14 @@
         <activity android:name="com.bobomee.blogdemos.view.switcher3d.Image3DSwitchActivity"/>
         <activity android:name="com.bobomee.blogdemos.tab_head_list_vp.ClipViewPagerListActivity"/>
         <activity android:name=".glide.GlidePlayActivity"/>
-
+        <activity android:name=".recycler.main.RecyclerViewActivity"/>
+        <activity android:name=".recycler.linear.LinearLayoutManagerRecycler"/>
+        <activity android:name=".recycler.grid.GridLayoutManagerRecycler"/>
+        <activity android:name=".recycler.staggered.StaggeredRecycler"/>
+        <activity android:name=".recycler.grid.GridSpanSizeRecycler"/>
+        <activity android:name=".recycler.grid.GridWithHeaderRecycler"/>
+        <activity android:name=".recycler.grid.GridAddItemRecycler"/>
+        <activity android:name=".recycler.staggered.StaggeredSelectRecycler"/>
 
     </application>
 

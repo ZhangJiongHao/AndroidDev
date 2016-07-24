@@ -6,7 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import com.bobomee.blogdemos.IConstant;
 
 /**
@@ -15,6 +16,7 @@ import com.bobomee.blogdemos.IConstant;
 public abstract class BaseFragment extends Fragment implements IConstant{
 
     protected BaseActivity baseA;
+    private Unbinder mBind;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,11 +40,14 @@ public abstract class BaseFragment extends Fragment implements IConstant{
                 parent.removeAllViews();
         }
 
+        mBind = ButterKnife.bind(this, fragmentRoot);
         return fragmentRoot;
     }
 
     public abstract View initFragmentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
 
-
-
+    @Override public void onDestroyView() {
+        super.onDestroyView();
+        if (null != mBind) mBind.unbind();
+    }
 }

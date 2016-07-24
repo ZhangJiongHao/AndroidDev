@@ -7,11 +7,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.bobomee.blogdemos.base.BaseListActivity;
 import com.bobomee.blogdemos.dialog_fragment.BottomViewActivity;
 import com.bobomee.blogdemos.glide.GlidePlayActivity;
 import com.bobomee.blogdemos.js_native.JsJavaInteractive;
+import com.bobomee.blogdemos.recycler.main.RecyclerViewActivity;
 import com.bobomee.blogdemos.tab_head_list_vp.ClipViewPagerListActivity;
 import com.bobomee.blogdemos.tools.ScreenShotActivity;
 import com.bobomee.blogdemos.view.arcmenu.ArcMenuActivity;
@@ -27,9 +27,8 @@ public class MainActivity extends BaseListActivity {
             "JsJavaInteractive",
             "BottomViewActivity",
             "CompoundDrawablesTextViewActivity",
-            "Image3DSwitchActivity",
-            "ClipViewPagerListActivity",
-            "GlidePlayActivity"
+            "Image3DSwitchActivity", "ClipViewPagerListActivity", "GlidePlayActivity",
+        "RecyclerViewActivity"
     };
     private Class[] CLS = {ArcMenuActivity.class,
             IndexListActivity.class,
@@ -37,9 +36,8 @@ public class MainActivity extends BaseListActivity {
             JsJavaInteractive.class,
             BottomViewActivity.class,
             CompoundDrawablesTextViewActivity.class,
-            Image3DSwitchActivity.class,
-            ClipViewPagerListActivity.class,
-            GlidePlayActivity.class
+            Image3DSwitchActivity.class, ClipViewPagerListActivity.class, GlidePlayActivity.class,
+        RecyclerViewActivity.class
     };
 
 

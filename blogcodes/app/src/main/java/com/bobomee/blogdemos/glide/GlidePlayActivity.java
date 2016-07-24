@@ -9,7 +9,9 @@ import android.support.v4.app.NotificationCompat;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RemoteViews;
-
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import com.bobomee.android.common.util.ToastUtil;
 import com.bobomee.blogdemos.R;
 import com.bobomee.blogdemos.base.BaseActivity;
@@ -23,9 +25,6 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.NotificationTarget;
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.target.ViewTarget;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import jp.wasabeef.glide.transformations.BlurTransformation;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
@@ -36,34 +35,35 @@ public class GlidePlayActivity extends BaseActivity {
 
 
     private static final int NOTIFICATION_ID = 0x11;
-    @Bind(R.id.imageView1)
+    @BindView(R.id.imageView1)
     ImageView imageView1;
-    @Bind(R.id.imageView2)
+    @BindView(R.id.imageView2)
     ImageView imageView2;
-    @Bind(R.id.imageView3)
+    @BindView(R.id.imageView3)
     ImageView imageView3;
-    @Bind(R.id.imageView4)
+    @BindView(R.id.imageView4)
     ImageView imageView4;
-    @Bind(R.id.imageView5)
+    @BindView(R.id.imageView5)
     ImageView imageView5;
-    @Bind(R.id.imageView6)
+    @BindView(R.id.imageView6)
     ImageView imageView6;
-    @Bind(R.id.imageView7)
+    @BindView(R.id.imageView7)
     ImageView imageView7;
-    @Bind(R.id.container)
+    @BindView(R.id.container)
     LinearLayout container;
+    private Unbinder mBind;
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.unbind(this);
+        mBind.unbind();
     }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.glide_play_layout);
-        ButterKnife.bind(this);
+        mBind = ButterKnife.bind(this);
 
         simpleUse();
         CenterCrop();
@@ -172,7 +172,7 @@ public class GlidePlayActivity extends BaseActivity {
 // build notification
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.mipmap.icon_photo)
+                        .setSmallIcon(R.mipmap.ic_launcher)
                         .setContentTitle("Content Title")
                         .setContentText("Content Text")
                         .setContent(rv)

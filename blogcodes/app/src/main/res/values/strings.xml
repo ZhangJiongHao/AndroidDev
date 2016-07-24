@@ -8,4 +8,16 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
+    <string name="linear">LinearLayoutManager</string>
+    <string name="grid">GridLayoutManager</string>
+    <string name="staggered">StaggeredGridLayoutManager</string>
+    <string name="spansize">GridSpanSizeRecyclerView</string>
+    <string name="gridwithheadr">GridWithHeaderRecyclerView</string>
+    <string name="gridaddremove">GridWithItem add and remove</string>
+    <string name="gridselect">GridWith Select Mode</string>
+    <string name="recyclerview_linearlayoutmanager">recyclerview linearlayoutmanager</string>
+    <string name="recyclerview_gridlayoutmanager">recyclerview gridlayoutmanager</string>
+    <string name="recyclerview_staggeredgridlayoutmanager">recyclerview staggeredgridlayoutmanager</string>
 </resources>
