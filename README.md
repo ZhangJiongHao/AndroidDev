@@ -6,5 +6,5 @@ gradle 引用
 ---------
 
 ```java
-compile 'com.bobomee.android:common:1.3.6'
+compile 'com.bobomee.android:common:1.3.7'
 ```

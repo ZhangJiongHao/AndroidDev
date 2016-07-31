@@ -1,23 +1,17 @@
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-// load properties
-Properties properties = new Properties()
-File localPropertiesFile = project.file("local.properties");
-if(localPropertiesFile.exists()){
-    properties.load(localPropertiesFile.newDataInputStream())
-}
 
 // read properties
-def projectName = properties.getProperty("project.name")
-def projectGroupId = properties.getProperty("project.groupId")
-def projectArtifactId = properties.getProperty("project.artifactId")
+def projectName = "AndroidCommon"
+def projectGroupId = "com.bobomee.android"
+def projectArtifactId = "common"
 def projectVersionName = android.defaultConfig.versionName
-def projectPackaging = properties.getProperty("project.packaging")
-def projectSiteUrl = properties.getProperty("project.siteUrl")
-def projectGitUrl = properties.getProperty("project.gitUrl")
-def projectDesc = properties.getProperty("project.desc")
-def projectIssueUrl = properties.getProperty("project.issueUrl")
+def projectPackaging = "aar"
+def projectSiteUrl = "https://github.com/BoBoMEe/AndroidDev/tree/common"
+def projectGitUrl = "https://github.com/BoBoMEe/AndroidDev.git"
+def projectDesc = "A helpful library(develop tools) for Android"
+def projectIssueUrl = "https://github.com/BoBoMEe/AndroidDev/issues"
 
 def developerId = "bobomee"
 def developerName = "BoBoMEe"
@@ -26,7 +20,7 @@ def developerEmail = "wbwjx115@gmail.com"
 def bintrayUser = "bobomee"
 def bintrayApikey = "a8bea95a15202a6f8580bb4dc47e3d78f5cc0928"
 
-def javadocName = properties.getProperty("javadoc.name")
+def javadocName = "AndroidCommon"
 
 group = projectGroupId
 

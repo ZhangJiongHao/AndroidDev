@@ -23,6 +23,7 @@ import android.graphics.BitmapFactory;
 import android.util.Log;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 
 /**
