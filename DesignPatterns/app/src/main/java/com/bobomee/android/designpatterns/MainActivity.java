@@ -10,6 +10,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.bobomee.android.designpatterns.adapter.LinearActivity;
+import com.bobomee.android.designpatterns.prototype.CloneActivity;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 import java.util.ArrayList;
@@ -54,10 +55,10 @@ public class MainActivity extends AppCompatActivity {
   private void initDatas() {
 
     mClasses = new Class[] {
-        LinearActivity.class
+        LinearActivity.class, CloneActivity.class
     };
     mStrings = new String[] {
-        "Adapter模式使用实例"
+        "Adapter模式使用实例", "原型模式使用实例"
     };
   }
 }
