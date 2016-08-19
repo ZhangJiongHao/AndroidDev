@@ -10,6 +10,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.bobomee.android.designpatterns.adapter.LinearActivity;
+import com.bobomee.android.designpatterns.iterator.Iterator;
 import com.bobomee.android.designpatterns.prototype.CloneActivity;
 import com.bobomee.android.designpatterns.state.StateActivity;
 import com.bobomee.android.designpatterns.stragety.TranficCal;
@@ -57,10 +58,10 @@ public class MainActivity extends AppCompatActivity {
   private void initDatas() {
 
     mClasses = new Class[] {
-        LinearActivity.class, CloneActivity.class, TranficCal.class, StateActivity.class
+        LinearActivity.class, CloneActivity.class, TranficCal.class, StateActivity.class, Iterator.class
     };
     mStrings = new String[] {
-        "Adapter模式使用实例", "原型模式使用实例","策略模式使用实例","状态模式使用实例"
+        "Adapter模式使用实例", "原型模式使用实例","策略模式使用实例","状态模式使用实例","责任链模式"
     };
   }
 }

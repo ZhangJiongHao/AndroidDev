@@ -19,6 +19,7 @@
     <activity android:name=".prototype.CloneActivity"/>
     <activity android:name=".stragety.TranficCal"/>
     <activity android:name=".state.StateActivity"/>
+    <activity android:name=".iterator.Iterator"/>
   </application>
 
 </manifest>
