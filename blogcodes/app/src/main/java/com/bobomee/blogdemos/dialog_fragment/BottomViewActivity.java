@@ -2,10 +2,8 @@ package com.bobomee.blogdemos.dialog_fragment;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
-
 import com.bobomee.blogdemos.R;
 import com.bobomee.blogdemos.base.BaseActivity;
 
@@ -25,8 +23,11 @@ public class BottomViewActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.dialog_fragment:
 
-                BottomDialogFragment bottomDialogFragment = (BottomDialogFragment) Fragment.instantiate(this, BottomDialogFragment.class.getName());
-                getSupportFragmentManager().beginTransaction().add(bottomDialogFragment, "bottomDialogFragment").commitAllowingStateLoss();
+                //BottomDialogFragment bottomDialogFragment = (BottomDialogFragment) Fragment.instantiate(this, BottomDialogFragment.class.getName());
+                //getSupportFragmentManager().beginTransaction().add(bottomDialogFragment, "bottomDialogFragment").commitAllowingStateLoss();
+
+                BottomDialogFragment.showDialog(getSupportFragmentManager());
+
                 break;
             case R.id.dialog_bottomview:
 //                new BottomSheet.Builder(this).title("title").sheet(R.menu.bottom_list).listener(new DialogInterface.OnClickListener() {

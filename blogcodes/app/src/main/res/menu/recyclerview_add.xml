@@ -7,12 +7,12 @@
       android:id="@+id/menu_sort"
       android:icon="@android:drawable/ic_menu_sort_by_size"
       android:orderInCategory="1"
-      android:title="Sort"
+      android:title="@string/sort_string"
       app:showAsAction="always"/>
   <item
       android:id="@+id/menu_add"
       android:icon="@android:drawable/ic_menu_add"
       android:orderInCategory="1"
-      android:title="Add"
+      android:title="@string/add_string"
       app:showAsAction="ifRoom"/>
 </menu>

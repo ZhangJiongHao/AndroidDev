@@ -1,6 +1,5 @@
 package com.bobomee.blogdemos.base;
 
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,11 +50,4 @@ public class BaseActivity extends AppCompatActivity implements IConstant {
         StatusBarUtils.instance(this).setColor(UIUtil.getColor(R.color.colorAccent)).setStyle(StatusBarUtils.TYPE.FILL).init();
     }
 
-    public void openFragment(Fragment fragment) {
-
-        getSupportFragmentManager().beginTransaction()
-            .replace(android.R.id.content, fragment)
-            .addToBackStack(null)
-            .commitAllowingStateLoss();
-    }
 }

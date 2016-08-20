@@ -38,8 +38,10 @@ public abstract class BaseFragment extends Fragment implements IConstant{
             ViewGroup parent = (ViewGroup) fragmentRoot.getParent();
             if (null != parent)
                 parent.removeAllViews();
+        } else {
+            fragmentRoot = super.onCreateView(inflater, container, savedInstanceState);
         }
-
+        if (null != fragmentRoot)
         mBind = ButterKnife.bind(this, fragmentRoot);
         return fragmentRoot;
     }

@@ -13,6 +13,7 @@
       android:background="@drawable/green_background"
       android:padding="8dp"
       android:src="@mipmap/ic_launcher"
+      tools:ignore="ContentDescription"
       />
 
   <TextView
@@ -22,7 +23,7 @@
       android:background="@drawable/light_blue_background"
       android:padding="8dp"
       android:textAppearance="?android:attr/textAppearanceMedium"
-      android:text="header"
+      android:text="@string/header"
       />
 </LinearLayout>
 

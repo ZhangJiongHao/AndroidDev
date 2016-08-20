@@ -12,6 +12,7 @@ import com.bobomee.blogdemos.dialog_fragment.BottomViewActivity;
 import com.bobomee.blogdemos.glide.GlidePlayActivity;
 import com.bobomee.blogdemos.js_native.JsJavaInteractive;
 import com.bobomee.blogdemos.recycler.main.RecyclerViewActivity;
+import com.bobomee.blogdemos.scroll.View_st_sb;
 import com.bobomee.blogdemos.tab_head_list_vp.ClipViewPagerListActivity;
 import com.bobomee.blogdemos.tools.ScreenShotActivity;
 import com.bobomee.blogdemos.view.arcmenu.ArcMenuActivity;
@@ -28,7 +29,7 @@ public class MainActivity extends BaseListActivity {
             "BottomViewActivity",
             "CompoundDrawablesTextViewActivity",
             "Image3DSwitchActivity", "ClipViewPagerListActivity", "GlidePlayActivity",
-        "RecyclerViewActivity"
+        "RecyclerViewActivity","ViewScrollTo_ScrollBy"
     };
     private Class[] CLS = {ArcMenuActivity.class,
             IndexListActivity.class,
@@ -37,7 +38,8 @@ public class MainActivity extends BaseListActivity {
             BottomViewActivity.class,
             CompoundDrawablesTextViewActivity.class,
             Image3DSwitchActivity.class, ClipViewPagerListActivity.class, GlidePlayActivity.class,
-        RecyclerViewActivity.class
+        RecyclerViewActivity.class,
+        View_st_sb.class
     };
 
 

@@ -6,7 +6,7 @@
     <Button
         android:onClick="pop"
         android:id="@+id/dialog_fragment"
-        android:text="底部弹出的DialogFragment"
+        android:text="@string/dialogfragment"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize" />
 
@@ -15,14 +15,14 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:onClick="pop"
-        android:text="底部弹出的BottomSheet" />
+        android:text="@string/bottomsheet" />
 
     <Button
         android:id="@+id/alert_dialog"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:onClick="pop"
-        android:text="AlertDialog" />
+        android:text="@string/alertdialog" />
 
 
 </LinearLayout>

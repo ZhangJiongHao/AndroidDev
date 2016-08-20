@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -13,13 +14,11 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ListView;
-
 import com.bobomee.android.common.util.StringUtil;
 import com.bobomee.blogdemos.R;
 import com.bobomee.blogdemos.base.BaseDialogFragment;
 import com.joanzapata.android.BaseAdapterHelper;
 import com.joanzapata.android.QuickAdapter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +31,15 @@ public class BottomDialogFragment extends BaseDialogFragment {
     private List<ListItem> datas = new ArrayList<>();
 
     protected Dialog dialog;
+
+    private static final String TAG = "BottomDialogFragment";
+
+    public static BottomDialogFragment newInstance() {
+        Bundle args = new Bundle();
+        BottomDialogFragment fragment = new BottomDialogFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public View initFragmentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -64,8 +72,7 @@ public class BottomDialogFragment extends BaseDialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.BottomDialog);
-        LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_bottom_layout, null);
+        View view = View.inflate(baseA, R.layout.dialog_bottom_layout, null);
 
         initView(view);
 
@@ -79,10 +86,19 @@ public class BottomDialogFragment extends BaseDialogFragment {
         Window window = dialog.getWindow();
         WindowManager.LayoutParams wlp = window.getAttributes();
         wlp.gravity = Gravity.BOTTOM;
+        //设置没有效果
         wlp.width = WindowManager.LayoutParams.MATCH_PARENT;
         window.setAttributes(wlp);
 
         return dialog;
+    }
+
+    @Override public void onStart() {
+        super.onStart();
+        Dialog dialog = getDialog();
+        if (null != dialog) {
+            dialog.getWindow().setLayout(-1, -2);
+        }
     }
 
     private void initView(View view) {
@@ -95,5 +111,22 @@ public class BottomDialogFragment extends BaseDialogFragment {
                 helper.setText(android.R.id.text1, item.content);
             }
         });
+    }
+
+    //防止重复弹出
+    public static BottomDialogFragment showDialog(FragmentManager fragmentManager) {
+        BottomDialogFragment bottomDialogFragment =
+            (BottomDialogFragment) fragmentManager.findFragmentByTag(TAG);
+        if (null == bottomDialogFragment) {
+            bottomDialogFragment = newInstance();
+        }
+
+        if (null != bottomDialogFragment && !bottomDialogFragment.isAdded()) {
+            fragmentManager.beginTransaction()
+                .add(bottomDialogFragment, TAG)
+                .commitAllowingStateLoss();
+        }
+
+        return bottomDialogFragment;
     }
 }

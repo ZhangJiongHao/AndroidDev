@@ -20,8 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:gravity="center_vertical"
-        android:text="vertical"
-        android:textSize="50dp"
+        android:text="@string/vertical"
+        android:textSize="50sp"
         />
     <include layout="@layout/recyclerview_layout"/>
   </LinearLayout>
@@ -37,8 +37,8 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:gravity="center_vertical"
-        android:text="horizontal"
-        android:textSize="50dp"
+        android:text="@string/horizontal"
+        android:textSize="50sp"
         />
     <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"

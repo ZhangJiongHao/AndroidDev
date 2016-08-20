@@ -39,6 +39,10 @@
         <activity android:name=".recycler.grid.GridWithHeaderRecycler"/>
         <activity android:name=".recycler.grid.GridAddItemRecycler"/>
         <activity android:name=".recycler.staggered.StaggeredSelectRecycler"/>
+        <activity android:name=".base.BaseActivity"/>
+        <activity android:name=".base.BaseListActivity"/>
+        <activity android:name=".recycler.BaseRecycler"/>
+        <activity android:name=".scroll.View_st_sb"/>
 
     </application>
 
