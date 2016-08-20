@@ -20,6 +20,7 @@
     <activity android:name=".stragety.TranficCal"/>
     <activity android:name=".state.StateActivity"/>
     <activity android:name=".iterator.Iterator"/>
+    <activity android:name="com.bobomee.android.designpatterns.command.CommandActivity"/>
   </application>
 
 </manifest>
