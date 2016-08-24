@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -114,14 +115,17 @@ public class BottomDialogFragment extends BaseDialogFragment {
     }
 
     //防止重复弹出
-    public static BottomDialogFragment showDialog(FragmentManager fragmentManager) {
+    public static BottomDialogFragment showDialog(AppCompatActivity appCompatActivity) {
+        FragmentManager fragmentManager = appCompatActivity.getSupportFragmentManager();
         BottomDialogFragment bottomDialogFragment =
             (BottomDialogFragment) fragmentManager.findFragmentByTag(TAG);
         if (null == bottomDialogFragment) {
             bottomDialogFragment = newInstance();
         }
 
-        if (null != bottomDialogFragment && !bottomDialogFragment.isAdded()) {
+        if (!appCompatActivity.isFinishing()
+            && null != bottomDialogFragment
+            && !bottomDialogFragment.isAdded()) {
             fragmentManager.beginTransaction()
                 .add(bottomDialogFragment, TAG)
                 .commitAllowingStateLoss();
