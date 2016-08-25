@@ -2,12 +2,12 @@ package com.bobomee.android.designpatterns.prototype;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import com.bobomee.android.designpatterns.BaseActivity;
 import com.bobomee.android.designpatterns.R;
 import java.util.ArrayList;
 
@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * @author bobomee.
  * @description:
  */
-public class CloneActivity extends AppCompatActivity {
+public class CloneActivity extends BaseActivity {
 
   private static final String TAG = "CloneActivity";
 

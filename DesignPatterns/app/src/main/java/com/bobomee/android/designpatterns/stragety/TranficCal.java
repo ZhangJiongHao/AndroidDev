@@ -2,11 +2,11 @@ package com.bobomee.android.designpatterns.stragety;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
+import com.bobomee.android.designpatterns.BaseActivity;
 
 /**
  * Created on 16/8/16.下午11:19.
@@ -14,7 +14,7 @@ import android.widget.Toast;
  * @author bobomee.
  * @description:
  */
-public class TranficCal extends AppCompatActivity {
+public class TranficCal extends BaseActivity {
 
   private Calculate mCalculate;
 

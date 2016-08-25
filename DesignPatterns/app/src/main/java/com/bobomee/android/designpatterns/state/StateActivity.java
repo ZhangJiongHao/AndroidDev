@@ -2,10 +2,10 @@ package com.bobomee.android.designpatterns.state;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import com.bobomee.android.designpatterns.BaseActivity;
 
 /**
  * Created on 16/8/17.下午10:30.
@@ -13,7 +13,7 @@ import android.widget.Button;
  * @author bobomee.
  * @description:
  */
-public class StateActivity extends AppCompatActivity {
+public class StateActivity extends BaseActivity {
 
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);

@@ -2,10 +2,10 @@ package com.bobomee.android.designpatterns.observer;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import com.bobomee.android.designpatterns.BaseActivity;
 
 /**
  * Created on 16/8/20.下午11:45.
@@ -13,7 +13,8 @@ import android.widget.Button;
  * @author bobomee.
  * @description:
  */
-public class ObservableActivity extends AppCompatActivity {
+public class ObservableActivity extends BaseActivity {
+
 
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -30,8 +31,8 @@ public class ObservableActivity extends AppCompatActivity {
       @Override public void onClick(View v) {
         ISubject subject = new ConcreteSubject();
 
-        IObserver observer1 = new ConcreteObserver1();
-        IObserver observer2 = new ConcreteObserver2();
+        IObserver observer1 = new ConcreteObserver1(mActivity);
+        IObserver observer2 = new ConcreteObserver2(mActivity);
 
         //regist observer
         subject.registerObserver(observer1);

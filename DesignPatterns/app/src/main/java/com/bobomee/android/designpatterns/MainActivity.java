@@ -2,7 +2,6 @@ package com.bobomee.android.designpatterns;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -10,7 +9,10 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.bobomee.android.designpatterns.adapter.LinearActivity;
+import com.bobomee.android.designpatterns.command.CommandActivity;
 import com.bobomee.android.designpatterns.iterator.Iterator;
+import com.bobomee.android.designpatterns.memento.NoteActivity;
+import com.bobomee.android.designpatterns.observer.ObservableActivity;
 import com.bobomee.android.designpatterns.prototype.CloneActivity;
 import com.bobomee.android.designpatterns.state.StateActivity;
 import com.bobomee.android.designpatterns.stragety.TranficCal;
@@ -19,7 +21,7 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
   @BindView(R.id.recycler_view) RecyclerView mRecyclerView;
   private Class[] mClasses;
@@ -58,10 +60,11 @@ public class MainActivity extends AppCompatActivity {
   private void initDatas() {
 
     mClasses = new Class[] {
-        LinearActivity.class, CloneActivity.class, TranficCal.class, StateActivity.class, Iterator.class
+        LinearActivity.class, CloneActivity.class, TranficCal.class, StateActivity.class, Iterator.class,
+        CommandActivity.class, NoteActivity.class, ObservableActivity.class
     };
     mStrings = new String[] {
-        "Adapter模式使用实例", "原型模式使用实例","策略模式使用实例","状态模式使用实例","责任链模式"
+        "Adapter模式使用实例", "原型模式使用实例","策略模式使用实例","状态模式使用实例","责任链模式实例","命令模式实例","备忘录模式实例","观察者模式实例"
     };
   }
 }
