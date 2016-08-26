@@ -24,6 +24,7 @@
     <activity android:name=".memento.NoteActivity"/>
     <activity android:name=".observer.ObservableActivity"/>
     <activity android:name="com.bobomee.android.designpatterns.iterator.IteratorActivity"/>
+    <activity android:name=".template.TemplateActivity"/>
   </application>
 
 </manifest>
