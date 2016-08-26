@@ -1,4 +1,4 @@
-package com.bobomee.android.designpatterns.stragety;
+package com.bobomee.android.designpatterns.iterator;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,38 +11,34 @@ import com.bobomee.android.designpatterns.BaseActivity;
 import com.bobomee.android.designpatterns.R;
 
 /**
- * Created on 16/8/16.下午11:19.
+ * Created on 16/8/26.下午9:32.
  *
  * @author bobomee.
  * @description:
  */
-public class TranficCal extends BaseActivity {
+public class IteratorActivity extends BaseActivity {
 
   @BindView(R.id.btn_click) Button mBtnClick;
-  private Calculate mCalculate;
-
-  public void setCalculate(Calculate calculate) {
-    mCalculate = calculate;
-  }
-
-  public int calculate(int km) {
-    return mCalculate.calculate(km);
-  }
 
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-
     setContentView(R.layout.btn_layout);
     ButterKnife.bind(this);
-
   }
 
-  @OnClick(R.id.btn_click) public void setBtnClick(){
-    TranficCal tranficCal = new TranficCal();
+  @OnClick(R.id.btn_click) public void setBtnClick() {
+    Aggregate<String> aggregate = new ConcreteAggregate<>();
+    aggregate.add("Aige");
+    aggregate.add("Studio");
+    aggregate.add("SM");
+    aggregate.add("Brother");
+    aggregate.add("MM");
 
-    tranficCal.setCalculate(new BusCal());
+    Iterator<String> iterator = aggregate.iterator();
 
-    Toast.makeText(TranficCal.this, "BUS -- >" + tranficCal.calculate(3), Toast.LENGTH_SHORT)
-        .show();
+    while (iterator.hasNext()) {
+      Toast.makeText(IteratorActivity.this, "it next-->" + iterator.next(), Toast.LENGTH_SHORT)
+          .show();
+    }
   }
 }

@@ -17,7 +17,7 @@ import com.bobomee.android.designpatterns.R;
  * @author bobomee.
  * @description:
  */
-public class LinearActivity extends AppCompatActivity {
+public class AdapterActivity extends AppCompatActivity {
 
   @BindView(R.id.linear) Linear mLinear;
   LayoutInflater mInflater;

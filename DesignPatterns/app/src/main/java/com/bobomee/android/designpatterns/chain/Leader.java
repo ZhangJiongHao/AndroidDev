@@ -1,4 +1,4 @@
-package com.bobomee.android.designpatterns.iterator;
+package com.bobomee.android.designpatterns.chain;
 
 /**
  * Created on 16/8/18.下午11:37.

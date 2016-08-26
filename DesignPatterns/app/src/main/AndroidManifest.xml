@@ -15,14 +15,15 @@
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-    <activity android:name=".adapter.LinearActivity"/>
+    <activity android:name=".adapter.AdapterActivity"/>
     <activity android:name=".prototype.CloneActivity"/>
     <activity android:name=".stragety.TranficCal"/>
     <activity android:name=".state.StateActivity"/>
-    <activity android:name=".iterator.Iterator"/>
+    <activity android:name=".chain.ChainActivity"/>
     <activity android:name="com.bobomee.android.designpatterns.command.CommandActivity"/>
     <activity android:name=".memento.NoteActivity"/>
     <activity android:name=".observer.ObservableActivity"/>
+    <activity android:name="com.bobomee.android.designpatterns.iterator.IteratorActivity"/>
   </application>
 
 </manifest>

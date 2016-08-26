@@ -1,4 +1,4 @@
-package com.bobomee.android.designpatterns.iterator;
+package com.bobomee.android.designpatterns.chain;
 
 import android.util.Log;
 

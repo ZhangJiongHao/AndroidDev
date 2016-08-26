@@ -1,45 +1,20 @@
 package com.bobomee.android.designpatterns.iterator;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-
 /**
- * Created on 16/8/18.下午11:46.
+ * Created on 16/8/26.下午9:19.
  *
  * @author bobomee.
  * @description:
  */
-public class Iterator extends AppCompatActivity {
+public interface Iterator<T> {
 
-  @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
+  /**
+   * 是否还有下一个元素
+   */
+  boolean hasNext();
 
-
-    Button button = new Button(this);
-    button.setText("Click");
-
-    ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(-1, 150);
-
-    addContentView(button, params);
-
-
-    button.setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        GroupLeader groupLeader = new GroupLeader();
-        Director director = new Director();
-        Manager manager = new Manager();
-        Boss boss = new Boss();
-
-        groupLeader.nextHandler = director;
-        director.nextHandler = manager;
-        manager.nextHandler = boss;
-
-        groupLeader.handleRequest(50000);
-      }
-    });
-  }
+  /**
+   * 返回当前位置的元素并将位置移至下一步
+   */
+  T next();
 }
