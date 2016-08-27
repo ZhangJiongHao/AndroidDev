@@ -26,6 +26,7 @@
     <activity android:name="com.bobomee.android.designpatterns.iterator.IteratorActivity"/>
     <activity android:name=".template.TemplateActivity"/>
     <activity android:name=".visitor.VisitorAcitivity"/>
+    <activity android:name=".mediator.MediatorActivity"/>
   </application>
 
 </manifest>
