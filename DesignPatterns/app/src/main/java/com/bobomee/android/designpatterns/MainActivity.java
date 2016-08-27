@@ -16,6 +16,7 @@ import com.bobomee.android.designpatterns.mediator.MediatorActivity;
 import com.bobomee.android.designpatterns.memento.NoteActivity;
 import com.bobomee.android.designpatterns.observer.ObservableActivity;
 import com.bobomee.android.designpatterns.prototype.CloneActivity;
+import com.bobomee.android.designpatterns.proxy.ProxyActivity;
 import com.bobomee.android.designpatterns.state.StateActivity;
 import com.bobomee.android.designpatterns.stragety.TranficCal;
 import com.bobomee.android.designpatterns.template.TemplateActivity;
@@ -66,11 +67,11 @@ public class MainActivity extends BaseActivity {
     mClasses = new Class[] {
         AdapterActivity.class, CloneActivity.class, TranficCal.class, StateActivity.class, ChainActivity.class,
         CommandActivity.class, NoteActivity.class, ObservableActivity.class, IteratorActivity.class,
-        TemplateActivity.class, VisitorAcitivity.class, MediatorActivity.class
+        TemplateActivity.class, VisitorAcitivity.class, MediatorActivity.class, ProxyActivity.class
     };
     mStrings = new String[] {
         "Adapter模式使用实例", "原型模式使用实例", "策略模式使用实例", "状态模式使用实例", "责任链模式实例", "命令模式实例", "备忘录模式实例",
-        "观察者模式实例", "迭代器模式使用实例", "模板方法设计模式","访问者模式使用实例","中介者模式实例"
+        "观察者模式实例", "迭代器模式使用实例", "模板方法设计模式", "访问者模式使用实例", "中介者模式实例", "代理模式使用实例"
     };
   }
 }

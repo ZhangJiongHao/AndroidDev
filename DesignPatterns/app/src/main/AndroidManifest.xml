@@ -27,6 +27,7 @@
     <activity android:name=".template.TemplateActivity"/>
     <activity android:name=".visitor.VisitorAcitivity"/>
     <activity android:name=".mediator.MediatorActivity"/>
+    <activity android:name=".proxy.ProxyActivity"/>
   </application>
 
 </manifest>
