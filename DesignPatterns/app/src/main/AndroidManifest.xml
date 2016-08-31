@@ -28,6 +28,9 @@
     <activity android:name=".visitor.VisitorAcitivity"/>
     <activity android:name=".mediator.MediatorActivity"/>
     <activity android:name=".proxy.ProxyActivity"/>
+    <activity android:name=".composite.CompositeActivity"/>
+    <activity android:name=".decorator.DecoratorActivity"/>
+    <activity android:name=".flyweight.FlyweightActivity"/>
   </application>
 
 </manifest>
