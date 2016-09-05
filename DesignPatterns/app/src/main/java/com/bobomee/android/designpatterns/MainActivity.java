@@ -9,10 +9,12 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.bobomee.android.designpatterns.adapter.AdapterActivity;
+import com.bobomee.android.designpatterns.bridge.BridgeActivity;
 import com.bobomee.android.designpatterns.chain.ChainActivity;
 import com.bobomee.android.designpatterns.command.CommandActivity;
 import com.bobomee.android.designpatterns.composite.CompositeActivity;
 import com.bobomee.android.designpatterns.decorator.DecoratorActivity;
+import com.bobomee.android.designpatterns.facade.FacadeActivity;
 import com.bobomee.android.designpatterns.flyweight.FlyweightActivity;
 import com.bobomee.android.designpatterns.iterator.IteratorActivity;
 import com.bobomee.android.designpatterns.mediator.MediatorActivity;
@@ -71,12 +73,13 @@ public class MainActivity extends BaseActivity {
         AdapterActivity.class, CloneActivity.class, TranficCal.class, StateActivity.class, ChainActivity.class,
         CommandActivity.class, NoteActivity.class, ObservableActivity.class, IteratorActivity.class,
         TemplateActivity.class, VisitorAcitivity.class, MediatorActivity.class, ProxyActivity.class,
-        CompositeActivity.class, DecoratorActivity.class, FlyweightActivity.class
+        CompositeActivity.class, DecoratorActivity.class, FlyweightActivity.class,
+        FacadeActivity.class, BridgeActivity.class
     };
     mStrings = new String[] {
         "Adapter模式使用实例", "原型模式使用实例", "策略模式使用实例", "状态模式使用实例", "责任链模式实例", "命令模式实例", "备忘录模式实例",
         "观察者模式实例", "迭代器模式使用实例", "模板方法设计模式", "访问者模式使用实例", "中介者模式实例", "代理模式使用实例", "组合模式使用实例",
-        "装饰者模式使用实例","享元模式使用实例"
+        "装饰者模式使用实例", "享元模式使用实例", "门面模式使用实例", "桥接模式使用实例"
     };
   }
 }

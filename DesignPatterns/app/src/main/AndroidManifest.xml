@@ -20,10 +20,10 @@
     <activity android:name=".stragety.TranficCal"/>
     <activity android:name=".state.StateActivity"/>
     <activity android:name=".chain.ChainActivity"/>
-    <activity android:name="com.bobomee.android.designpatterns.command.CommandActivity"/>
+    <activity android:name=".command.CommandActivity"/>
     <activity android:name=".memento.NoteActivity"/>
     <activity android:name=".observer.ObservableActivity"/>
-    <activity android:name="com.bobomee.android.designpatterns.iterator.IteratorActivity"/>
+    <activity android:name=".iterator.IteratorActivity"/>
     <activity android:name=".template.TemplateActivity"/>
     <activity android:name=".visitor.VisitorAcitivity"/>
     <activity android:name=".mediator.MediatorActivity"/>
@@ -31,6 +31,8 @@
     <activity android:name=".composite.CompositeActivity"/>
     <activity android:name=".decorator.DecoratorActivity"/>
     <activity android:name=".flyweight.FlyweightActivity"/>
+    <activity android:name=".facade.FacadeActivity"/>
+    <activity android:name=".bridge.BridgeActivity"/>
   </application>
 
 </manifest>
