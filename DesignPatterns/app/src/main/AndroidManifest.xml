@@ -33,6 +33,9 @@
     <activity android:name=".flyweight.FlyweightActivity"/>
     <activity android:name=".facade.FacadeActivity"/>
     <activity android:name=".bridge.BridgeActivity"/>
+    <activity android:name=".factorymethod.FactoryMethodActivity"/>
+    <activity android:name=".abstactfactory.AbstractFactoryActivity"/>
+    <activity android:name=".interpreter.InterpreterActivity"/>
   </application>
 
 </manifest>
