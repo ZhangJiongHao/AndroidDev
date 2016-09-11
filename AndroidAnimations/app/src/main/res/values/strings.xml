@@ -1,0 +1,16 @@
+<resources>
+  <string name="app_name">AndroidAnimations</string>
+  <string name="layout_animation">LayoutAnimation</string>
+  <string name="grid_animation">GridLayoutAnimation</string>
+  <string name="message_empty_layout_changes">Add an item above to get started.</string>
+  <string name="action_add_item">Add item</string>
+  <string name="action_remove_item">Remove item</string>
+  <string name="title_layout_changes">Layout Changes</string>
+  <string name="view_animation">View Animation</string>
+  <string name="interpolator">Interpolator</string>
+  <string name="drawable_animation">Drawable Animation</string>
+  <string name="animator_label">Animator Animation</string>
+  <string name="object_animator">Object Animator</string>
+  <string name="animator_set">Animator Set</string>
+  <string name="animate">animate</string>
+</resources>
