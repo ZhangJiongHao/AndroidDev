@@ -119,10 +119,6 @@ imageView.animate().alpha(0).y(100).setDuration(1000)
         });
 ```
 
-## 布局动画
-
-LayoutAnimationController,或者`android:layoutAnimation`,
-
 ## Activity切换动画
 
 overridePendingTransition(int inAnim, int outAnim)

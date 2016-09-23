@@ -29,6 +29,7 @@ public class DrawableAnimationActivity extends BaseActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_drawable_animation);
     ButterKnife.bind(this);
+    mIcon1.setImageResource(R.drawable.progress_drawable_white);
     mIcon2.setImageDrawable(createAnimationDrawable());
   }
 

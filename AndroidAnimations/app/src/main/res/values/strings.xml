@@ -13,4 +13,5 @@
   <string name="object_animator">Object Animator</string>
   <string name="animator_set">Animator Set</string>
   <string name="animate">animate</string>
+  <string name="transition">5.0android Transition</string>
 </resources>

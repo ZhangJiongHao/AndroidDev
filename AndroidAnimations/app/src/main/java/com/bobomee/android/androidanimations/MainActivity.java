@@ -12,6 +12,7 @@ import com.bobomee.android.androidanimations.drawable.DrawableAnimationActivity;
 import com.bobomee.android.androidanimations.layout.GridLayoutAnimationActivity;
 import com.bobomee.android.androidanimations.layout.LayoutAnimationActivity;
 import com.bobomee.android.androidanimations.layout.LayoutChangesActivity;
+import com.bobomee.android.androidanimations.layout.TransitionActivity;
 import com.bobomee.android.androidanimations.property.AnimatorActivity;
 import com.bobomee.android.androidanimations.view.InterpolatorActivity;
 import com.bobomee.android.androidanimations.view.ViewAnimationActivity;
@@ -27,12 +28,12 @@ public class MainActivity extends BaseActivity {
 
   List<String> mStrings = new ArrayList<>(Arrays.asList(new String[] {
       "LayoutAnimation", "GridLayoutAnimation", "LayoutChangeAnimation", "ViewAnimation","Interpolator"
-      ,"DrawableAnimation","PropertyAnimation"
+      ,"DrawableAnimation","PropertyAnimation","ActivityTransition"
   }));
   List<Class> mClasses = new ArrayList<>(Arrays.asList(new Class[] {
       LayoutAnimationActivity.class, GridLayoutAnimationActivity.class, LayoutChangesActivity.class,
       ViewAnimationActivity.class, InterpolatorActivity.class, DrawableAnimationActivity.class,
-      AnimatorActivity.class
+      AnimatorActivity.class, TransitionActivity.class
   }));
 
   @Override protected void onCreate(Bundle savedInstanceState) {
