@@ -12,7 +12,7 @@ import com.bobomee.android.androidanimations.drawable.DrawableAnimationActivity;
 import com.bobomee.android.androidanimations.layout.GridLayoutAnimationActivity;
 import com.bobomee.android.androidanimations.layout.LayoutAnimationActivity;
 import com.bobomee.android.androidanimations.layout.LayoutChangesActivity;
-import com.bobomee.android.androidanimations.layout.TransitionActivity;
+import com.bobomee.android.androidanimations.contenttransition.TransitionActivity;
 import com.bobomee.android.androidanimations.property.AnimatorActivity;
 import com.bobomee.android.androidanimations.view.InterpolatorActivity;
 import com.bobomee.android.androidanimations.view.ViewAnimationActivity;

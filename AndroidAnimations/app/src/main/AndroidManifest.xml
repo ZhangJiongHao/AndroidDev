@@ -63,13 +63,13 @@
       <meta-data android:name="android.support.PARENT_ACTIVITY"
           android:value=".MainActivity" />
     </activity>
-    <activity android:name=".layout.TransitionBActivity"
+    <activity android:name=".contenttransition.TransitionBActivity"
         android:label="@string/transition"
         android:parentActivityName=".MainActivity">>
       <meta-data android:name="android.support.PARENT_ACTIVITY"
           android:value=".MainActivity" />
     </activity>
-    <activity android:name=".layout.TransitionActivity"
+    <activity android:name=".contenttransition.TransitionActivity"
         android:label="@string/transition"
         android:parentActivityName=".MainActivity">>
       <meta-data android:name="android.support.PARENT_ACTIVITY"

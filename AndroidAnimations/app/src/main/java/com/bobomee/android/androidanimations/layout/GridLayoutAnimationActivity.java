@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
 import android.view.animation.GridLayoutAnimationController;
 import android.widget.Button;
 import android.widget.GridView;
@@ -77,6 +78,7 @@ public class GridLayoutAnimationActivity extends BaseActivity {
         | GridLayoutAnimationController.DIRECTION_RIGHT_TO_LEFT);
     gridLayoutAnimationController.setDirectionPriority(
         GridLayoutAnimationController.DIRECTION_BOTTOM_TO_TOP);
+    gridLayoutAnimationController.setInterpolator(new DecelerateInterpolator());
 
     mGridView.setLayoutAnimation(gridLayoutAnimationController);
     mGridView.startLayoutAnimation();

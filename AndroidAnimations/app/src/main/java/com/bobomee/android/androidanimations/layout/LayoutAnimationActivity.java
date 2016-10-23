@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
@@ -82,6 +83,7 @@ public class LayoutAnimationActivity extends BaseActivity {
          1f);
     animationController.setOrder(LayoutAnimationController.ORDER_NORMAL);
     mList.setLayoutAnimation(animationController);
+    animationController.setInterpolator(new AccelerateDecelerateInterpolator());
     mList.startLayoutAnimation();
   }
 
