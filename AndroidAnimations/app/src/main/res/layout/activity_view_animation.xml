@@ -6,16 +6,29 @@
     android:layout_height="match_parent">
 
 
-  <TextView
-      android:id="@android:id/text1"
-      android:padding="50dp"
+  <RelativeLayout
+      android:clickable="true"
+      android:layout_width="match_parent"
+      android:layout_height="120dp"
       android:gravity="center"
-      android:textStyle="italic|bold"
-      android:layout_gravity="center"
-      android:text="@string/view_animation"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      />
+      android:background="?android:attr/selectableItemBackground"
+      >
+
+    <Button
+        android:id="@android:id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:text="@string/view_animation"
+        android:textColor="@color/black_87pc"
+        android:textStyle="italic|bold"
+        tools:targetApi="lollipop"
+        />
+
+
+  </RelativeLayout>
 
 
   <ListView

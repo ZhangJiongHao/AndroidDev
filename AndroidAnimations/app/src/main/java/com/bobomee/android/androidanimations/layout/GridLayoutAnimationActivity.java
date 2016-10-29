@@ -46,9 +46,9 @@ public class GridLayoutAnimationActivity extends BaseActivity {
     initData();
 
     mGridView.setAdapter(mCommonAdapter =
-        new CommonAdapter<String>(mActivity, android.R.layout.simple_list_item_1, mStrings) {
+        new CommonAdapter<String>(mActivity, R.layout.item_main, mStrings) {
           @Override protected void convert(ViewHolder viewHolder, String item, int position) {
-            viewHolder.setText(android.R.id.text1, item);
+            viewHolder.setText(R.id.text_name, item);
           }
         });
 

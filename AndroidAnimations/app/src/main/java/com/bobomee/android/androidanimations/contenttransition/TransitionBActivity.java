@@ -2,7 +2,6 @@ package com.bobomee.android.androidanimations.contenttransition;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.BindView;
@@ -28,9 +27,5 @@ public class TransitionBActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        ActivityCompat.finishAfterTransition(this);
-    }
+
 }

@@ -1,6 +1,16 @@
 
 AndroidViewAnimations
----------
+---------------------
+## 触觉反馈
+
+在Android L上实现`ripple`效果
+
+* 在视图范围内展示波纹效果
+` android:background="?android:attr/selectableItemBackground"`
+
+* 波纹在接触点开始，之后填充整个视图背景
+` android:background="?android:attr/selectableItemBackgroundBorderless"`
+
 ## 布局动画
 LayoutAnimation: 初始化时设置给ViewGroup的动画
 
@@ -108,7 +118,7 @@ animator.setTarget(view);
 animator.start();
 ```
 
-### animate
+### View Property Animator
 
 3.0后View新增了animate()方法,是属性动画的简写方式
 
@@ -119,9 +129,37 @@ imageView.animate().alpha(0).y(100).setDuration(1000)
         });
 ```
 
+- 注意
+这里其实可以不用调用start方法,在链式调用结束,默认就会开启动画.
+此种方法不能设置多个属性值,不像ObjectAnimator可以设置中间值.
+
 ## Activity切换动画
 
-overridePendingTransition(int inAnim, int outAnim)
+之前的方法:
+1. overridePendingTransition(int inAnim, int outAnim);
+2. manifest清单文件的主题设置
+
+在`API>=21`后的窗口切换:
+
+官方默认提供了`Explode`,`Slide`,`Fade`三种变换.
+
+通过如下方式开启
+
+```java
+ActivityOptions transitionActivity =
+                ActivityOptions.makeSceneTransitionAnimation(xxxActivity.this);
+startActivity(intent, transitionActivity.toBundle());
+```
+
+通过如下方式来结束
+
+```java
+ActivityCompat.finishAfterTransition(this);
+```
+
+可以设置四种方式:
+包括 `makeCustomAnimation`,`makeScaleUpAnimation`,`makeThumbnailScaleUpAnimation`,`makeSceneTransitionAnimation`
+
 
 ## 自定义动画
 

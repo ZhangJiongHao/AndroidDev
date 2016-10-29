@@ -41,6 +41,7 @@ public class ViewAnimationActivity extends BaseActivity {
     initDatas();
 
     initViews();
+
   }
 
   private void initDatas() {
@@ -73,11 +74,11 @@ public class ViewAnimationActivity extends BaseActivity {
 
   private void initViews() {
     mList.setAdapter(
-        new CommonAdapter<Animation>(mActivity, android.R.layout.simple_list_item_1, mAnimations) {
+        new CommonAdapter<Animation>(mActivity, R.layout.item_main, mAnimations) {
           @Override
           protected void convert(ViewHolder viewHolder, final Animation item, int position) {
-            viewHolder.setText(android.R.id.text1, item.getClass().getSimpleName());
-            viewHolder.setOnClickListener(android.R.id.text1, new View.OnClickListener() {
+            viewHolder.setText(R.id.text_name, item.getClass().getSimpleName());
+            viewHolder.setOnClickListener(R.id.text_name, new View.OnClickListener() {
               @Override public void onClick(View _view) {
                 mText1.startAnimation(item);
               }

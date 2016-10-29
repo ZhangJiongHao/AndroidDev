@@ -67,11 +67,11 @@ public class InterpolatorActivity extends BaseActivity {
     final Animation animation =
         AnimationUtils.loadAnimation(mActivity, R.anim.rotate_one_rotate);
     mList.setAdapter(
-        new CommonAdapter<Interpolator>(mActivity, android.R.layout.simple_list_item_1, mInterpolators) {
+        new CommonAdapter<Interpolator>(mActivity, R.layout.item_main, mInterpolators) {
           @Override
           protected void convert(ViewHolder viewHolder, final Interpolator item, int position) {
-            viewHolder.setText(android.R.id.text1, item.getClass().getSimpleName());
-            viewHolder.setOnClickListener(android.R.id.text1, new View.OnClickListener() {
+            viewHolder.setText(R.id.text_name, item.getClass().getSimpleName());
+            viewHolder.setOnClickListener(R.id.text_name, new View.OnClickListener() {
               @Override public void onClick(View _view) {
                 animation.setInterpolator(item);
                 mText1.startAnimation(animation);
